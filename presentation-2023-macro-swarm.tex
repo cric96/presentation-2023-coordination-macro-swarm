@@ -156,24 +156,60 @@ A \textbf{swarm behavior} is a \emph{collective} behavior that emerges from the 
 \begin{frame}{Programming Swarm Behaviors}
 	\begin{block}{Problems}
 		\begin{itemize}
-			\item How to express \emph{swarm behaviors}~\footnote{\fullcite{Mone2013}}? \faArrowRight \, \emph{programming abstractions}
-			\item \emph{Complexity} \faArrowRight \, \emph{collective} and \emph{individual} levels \faArrowRight \bold{programming the emergence}~\footnote{\fullcite{varenne2015programming}}
-			\item \emph{Reusability} \faArrowRight \, \emph{compositionality} and \emph{modularity}
+			\item How to express \emph{swarm behaviors}\footnote{\fullcite{Mone2013}}? \faArrowRight \, \emph{programming abstractions} 
+			\begin{itemize}
+				\item Move the viewpoint from \emph{individual} to \emph{collective} level \faArrowRight \, macro-programming 
+			\end{itemize}
+			\item \emph{Complexity} \faArrowRight \, \emph{collective} and \emph{individual} levels \faArrowRight \, \bold{programming the emergence}\footnote{\fullcite{varenne2015programming}}
+			%\item \emph{Reusability} \faArrowRight \, \emph{compositionality} and \emph{modularity}
 			\item \emph{Scalability} \faArrowRight \, avoiding \emph{centralized} and \emph{global} approaches
+		\end{itemize}
+	\end{block}
+	\begin{alertblock}{Proposed solutions}
+		\begin{itemize}
+			\item Orchestration-based: centralized approaches for expressing swarm behaviors
+			\begin{itemize}
+				\item TeCoLa, Dolphin, PARoS
+			\end{itemize}
+			\item Choreographical-based: decentralized approaches for expressing swarm behaviors
+			\begin{itemize}
+				\item Buzz, Voltron, Meld
+			\end{itemize}
+		\end{itemize}
+	\end{alertblock}
+	\begin{block}{Limitations}
+		\begin{itemize}
+			\item Lack of modularity, no formal semantics, no practical implementation, \dots
 		\end{itemize}
 	\end{block}
 \end{frame}
 \begin{frame}{MacroSwarm}
-
+\centering {
+MacroSwarm\footnote{\url{https://github.com/AggregateComputing/experiment-2023-coordination-swarm-behaviour}} based on a macro programming approach called \emph{Aggregate Computing}\footnote{\fullcite{viroli2018field}} for programming swarm behaviors in a modular and scalable way.
+}
+\begin{alertblock}{Features}
+	\begin{itemize}
+		\item Cover the \emph{main classes} of swarm behaviors
+		\item \emph{modular} and \emph{composable} behaviors
+		\item purely functional transformations from input to actuation fields \faArrowRight \, easy to reason about
+		\item Support several organization patterns \faArrowRight \, flock-based, leader-based, \dots
+		\item Robust and scalable \faArrowRight \, \emph{decentralized} and \emph{asynchronous}
+	\end{itemize}
+\end{alertblock}
 \end{frame}
-\begin{frame}{Aggregate Computing}
+\begin{frame}[allowframebreaks]{Aggregate Computing}
 \begin{alertblock}{In a nutshell}
 \begin{itemize}
 	\item \emph{Computational fields} as first-class abstractions
 	\item Programs as field transformations through \emph{field calculus} 
-	\item Inspiration from co-fields and artificial potential fields
+	\item Inspiration from \emph{co-fields} and \emph{artificial potential fields}
 \end{itemize}
 \end{alertblock}
+
+\centering
+\includegraphics[height=5cm]{img/abstraction.png}
+\includegraphics[height=5cm]{img/high-level-examples.png}
+\includegraphics[height=5cm]{img/full-stack.png}
 \begin{block}{Why}
 \begin{itemize}
 	\item \emph{Top-down behaviour-based design} \faArrowRight \, \emph{compositionality} and \emph{collective stance} of aggregate computing;
