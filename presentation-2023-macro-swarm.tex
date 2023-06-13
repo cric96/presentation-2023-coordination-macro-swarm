@@ -28,7 +28,7 @@
 	bibstyle=numeric]{biblatex}
 
 	\makeatletter
-
+	\setbeamercovered{transparent}
 \addbibresource{biblio.bib}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \title[MacroSwarm]
@@ -87,19 +87,73 @@
 \centering
 \includegraphics[width=0.55\textwidth]{img/flock.jpeg}
 \\
-\huge{\emph{Networked Mobile Nodes}} \faPlus \, \textbf{Collective Behaviours}
+\huge{\emph{Networked Mobile Nodes}} \faPlus \, \textbf{Collective Behaviors}
 \end{frame}
-\begin{frame}{Swarm Behaviours}
-A \emph{swarm behaviour} is a \emph{collective} behaviour that emerges from the \emph{local} interactions of a \emph{population} of \emph{autonomous} entities.
+\begin{frame}{Swarm Behaviors}
+A \textbf{swarm behavior} is a \emph{collective} behavior that emerges from the \emph{local} interactions of a \emph{population} of \emph{autonomous} entities.
+\begin{block}{Inspiration from Nature: Social Animals}
+\begin{itemize}
+	\item \emph{Ants} \faArrowRight \, \emph{foraging} and \emph{nest building}
+	\item \emph{Fishes} \faArrowRight \, \emph{schooling}
+	\item \emph{Bees} \faArrowRight \, \emph{swarming}
+\end{itemize}
+\end{block}
+
+\centering
+\includegraphics[width=0.18\textwidth]{img/ants.jpeg}
+\includegraphics[width=0.18\textwidth]{img/bee.jpeg}
+\includegraphics[width=0.18\textwidth]{img/fishes.jpeg}
+
 \begin{alertblock}{In a nutshell}
 \begin{itemize}
-	\item \emph{Emergent} \faArrowRight \, \emph{self-organisation} and \emph{self-adaptation}
-	\item \emph{Decentralised} \faArrowRight \, \emph{locality} and \emph{scalability}
-	\item \emph{Asynchronous} \faArrowRight \, \emph{robustness} and \emph{fault-tolerance}
+	\item \textbf{Emergent} \faArrowRight \, \emph{self-organisation} and \emph{self-adaptation}
+	\item \textbf{Decentralized} \faArrowRight \, \emph{locality} and \emph{scalability}
+	\item \textbf{Asynchronous} \faArrowRight \, \emph{robustness} and \emph{fault-tolerance}
 \end{itemize}	
 \end{alertblock}
 \end{frame}
-\begin{frame}{Programming Swarm Behaviours}
+\begin{frame}{Swarm Behaviors: Taxonomy~\footnote{\fullcite{schranz2020swarm}}}
+\begin{exampleblock}{Main classes}
+	\begin{itemize}
+		\item<1-> \textbf{Spatial Organization}: collective movements that lead to global spatial patterns
+		\only<2>{
+			\begin{itemize}
+				\item<2> Collective structures \faArrowRight \, functional to achieve certain goals
+				\item<2> \bold{Aggregation}, \bold{pattern formation}, \bold{self-assembly}, \bold{object clustering} 
+			\end{itemize}
+		}
+		\item<3-> \textbf{Navigation}: coordinated motion in order to reach a target/perform collective tasks
+		\only<4>{
+			\begin{itemize}
+				\item<4> \bold{Exploration}, \bold{motion}, \bold{transportation}, \bold{localization}
+			\end{itemize}
+		}
+		\item<5-> \textbf{Decision-making}: lead the system to reach a global decision %or consensus
+		\only<6>{
+			\begin{itemize}
+				\item \bold{consensus}, \bold{task allocation}, \bold{group size regulation}, \bold{collective perception}, \dots
+			\end{itemize}
+		}
+	\end{itemize}
+
+\end{exampleblock}
+\vspace{0.2cm}
+\only<2>{
+	\centering
+	\includegraphics[width=0.2\textwidth]{example-image-a}
+	\includegraphics[width=0.2\textwidth]{example-image-a}
+	\includegraphics[width=0.2\textwidth]{example-image-a}
+	\includegraphics[width=0.2\textwidth]{example-image-a}
+}
+\only<4>{
+	\centering
+	\includegraphics[width=0.2\textwidth]{example-image-a}
+	\includegraphics[width=0.2\textwidth]{example-image-a}
+	\includegraphics[width=0.2\textwidth]{example-image-a}
+	\includegraphics[width=0.2\textwidth]{example-image-a}
+}
+\end{frame}
+\begin{frame}{Programming Swarm Behaviors}
 
 \end{frame}
 \begin{frame}{MacroSwarm}
@@ -110,16 +164,16 @@ A \emph{swarm behaviour} is a \emph{collective} behaviour that emerges from the 
 \begin{itemize}
 	\item \emph{Computational fields} as first-class abstractions
 	\item Programs as field transformations through \emph{field calculus} 
-	\item Inspiration from co-fields and artificial pontential fields
+	\item Inspiration from co-fields and artificial potential fields
 \end{itemize}
 \end{alertblock}
 \begin{block}{Why}
 \begin{itemize}
 	\item \emph{Top-down behaviour-based design} \faArrowRight \, \emph{compositionality} and \emph{collective stance} of aggregate computing;
-	\item \emph{Scalability} \faArrowRight fully decentralised and asynchronous
+	\item \emph{Scalability} \faArrowRight fully decentralized and asynchronous
 	\item \emph{Formal approach} \faArrowRight \, based on the field calculus
 		
-	\item \emph{Pragmatism} \faArrowRight \, witnessed by open-source, maintained, concrete software artefacts like the ScaFi DSL, Alchemist and {\sc{}ScaFi-Web}
+	\item \emph{Pragmatism} \faArrowRight \, witnessed by open-source, maintained, concrete software artifacts like the ScaFi DSL, Alchemist and {\sc{}ScaFi-Web}
 	\item \emph{Operational flexibility} \faArrowRight \, supporting different architectural styles and execution policies.
 \end{itemize}
 \end{block}
