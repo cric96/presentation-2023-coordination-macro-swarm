@@ -232,47 +232,94 @@ Control the movement of the individual agents within the swarm
 \begin{columns}
 	\begin{column}[t]{0.3\textwidth}
 		\begin{exampleblock}{Constant movement}
-			
+		
+		\includegraphics[width=\textwidth]{img/constant-movement.png}
 		\end{exampleblock}
 	\end{column}
 	\begin{column}[t]{0.3\textwidth}
 		\begin{exampleblock}{Obstacle avoidance}
 			
+		\includegraphics[width=\textwidth]{img/obstracle.png}
+		
 		\end{exampleblock}
 	\end{column}
 	\begin{column}[t]{0.3\textwidth}
 		\begin{exampleblock}{Explore}
 			
+		\includegraphics[width=\textwidth]{img/explore-2.png}
 		\end{exampleblock}
 	\end{column}
 \end{columns}
 \end{frame}
+\begin{frame}{API Overview}
+\begin{columns}
+\begin{column}{0.3\textwidth}
+\begin{exampleblock}{Flocking}
+\includegraphics[width=\textwidth]{img/flock.png}
+\end{exampleblock}
 
-\begin{frame}{API Overview: Flocking}
+\end{column}
+
+\begin{column}{0.3\textwidth}
+
+	\begin{exampleblock}{Leader Based}
+
+	\includegraphics[width=\textwidth]{img/towards-leader.png}
+	\end{exampleblock}
+\end{column}
+
+\begin{column}{0.3\textwidth}
+	\begin{exampleblock}{Team Formation}
+	\end{exampleblock}
+\end{column}
+	
+\end{columns}
+\begin{exampleblock}{Pattern Formation}
 \centering
-Enable system-wide emergent behaviours of flocks of agents
+\includegraphics[width=0.8\textwidth]{img/shapes.png}
+\end{exampleblock}
 \end{frame}
+%\begin{frame}{API Overview: Flocking}
+%\centering
+%Enable system-wide emergent behaviours of flocks of agents
+%\end{frame}
 
-\begin{frame}{API Overview: Leader-based motion}
-	Allow the agents to follow a leader 
-	\centering
-\end{frame}
-\begin{frame}{API Overview: Team Formation}
-	\centering
-	Creation of groups of agents with different roles/tasks coordinated by a leader
-\end{frame}
+%\begin{frame}{API Overview: Leader-based motion}
+%	Allow the agents to follow a leader 
+%	\centering
+%\end{frame}
+%\begin{frame}{API Overview: Team Formation}
+%	\centering
+%	Creation of groups of agents with different roles/tasks coordinated by a leader
+%\end{frame}
 \begin{frame}{API Overview: Swarm Planning}
 	\centering
 	Expressing a series of plans that change over time and
 	move the swarm towards different targets
 \end{frame}
 
+\begin{frame}{API Overview: Composition}
 
+\end{frame}
+\begin{frame}{Use case: Rescue and Exploration}
+
+\centering
+\fbox{\includegraphics[width=0.25\textwidth]{img/team-formation.png}}
+\fbox{\includegraphics[width=0.25\textwidth]{img/circle-formation.png}}
+\fbox{\includegraphics[width=0.255\textwidth]{img/explore-append.png}}
+\end{frame}
 \begin{frame}{}
 \centering
 \huge{Thank you for your attention!}
+\vspace{0.2cm}
 \fbox{\includegraphics[width=0.5\textwidth]{img/architecture.drawio.pdf}}
 \includegraphics[height=2.8cm]{img/full-stack.png}
+\\
+\vspace{0.2cm}
+\fbox{\includegraphics[width=0.2\textwidth]{img/team-formation.png}}
+\fbox{\includegraphics[width=0.2\textwidth]{img/circle-formation.png}}
+\fbox{\includegraphics[width=0.205\textwidth]{img/explore-append.png}}
+
 \end{frame}
 %===============================================================================
 \section*{}
