@@ -350,7 +350,7 @@ execute.once(
 
 \end{frame}
 
-\begin{frame}{API Overview: Composition}
+\begin{frame}[fragile]{API Overview: Composition}
 The behaviours can be composed together to create more complex behaviours
 \vspace{0.4cm}
 \begin{columns}
@@ -358,25 +358,91 @@ The behaviours can be composed together to create more complex behaviours
 \includegraphics[width=0.7\textwidth]{img/swarm-composition.png}
 \end{column}
 
-\begin{column}{0.3\textwidth}
-
+\begin{column}{0.6\textwidth}
+	\begin{minted}{scala}
+val avoid = obstacleAvoidance(...)
+val separation = separation(...)
+val moveTo = goTo(target)
+avoid + separation + moveTo
+			\end{minted}
+\includegraphics[width=0.7\textwidth]{img/composition.png}
 \end{column}
 
-\begin{column}{0.3\textwidth}
-
-\end{column}
 \end{columns}
 \end{frame}
-\begin{frame}{Use case: Rescue and Exploration}
+\begin{frame}[fragile]{Use case: Rescue and Exploration}
+\begin{exampleblock}{High-level description}
+	\begin{itemize}
+		\item A swarm of robots are deployed in a rectangular area
+		\item A group of robots is assigned to explore the area
+		\item Other robots are assigned to heal the injured robots
+		\item \url{https://github.com/AggregateComputing/experiment-2023-coordination-swarm-behaviour}
+	\end{itemize}
+\end{exampleblock}
+\begin{columns}
+\begin{column}{0.4\textwidth}
 
+\begin{alertblock}{Pseudocode}
+	\begin{enumerate}
+		\item Form teams of robots with healers and explorers (team formation)
+		\item Explore the area (Exploration)
+		\item When a robot finds an injured, it broadcasts a message (leader-based)
+		\item The healers move towards the injured
+	\end{enumerate}
+\end{alertblock}
+\end{column}
+
+\begin{column}{0.55\textwidth}
+	\begin{block}{MacroSwarm implementation}
+		\begin{minted}[fontsize=\small]{scala}
+execute.repeat(
+	plan(formation(lead))
+		.endWhen(circleIsFormed),
+	plan(wanderInFormation(lead))
+		.endWhen(dangerFound),
+	plan(goToHealInFormation(lead, inDanger))
+			.endWhen(dangerReached),
+	plan(heal(healerId, inDanger))
+)
+		\end{minted}
+	\end{block}
+\end{column}
+
+\end{columns}
+\end{frame}
+\begin{frame}{Use case: Results}
 \centering
 \fbox{\includegraphics[width=0.25\textwidth]{img/team-formation.png}}
 \fbox{\includegraphics[width=0.25\textwidth]{img/circle-formation.png}}
 \fbox{\includegraphics[width=0.255\textwidth]{img/explore-append.png}}
+\\
+\vspace{0.4cm}
+\fbox{\includegraphics[width=0.3\textwidth]{img/average_intra_team_distance.pdf}}
+\fbox{\includegraphics[width=0.3\textwidth]{img/in_danger.pdf}}
+\fbox{\includegraphics[width=0.3\textwidth]{img/min_distance.pdf}}
 \end{frame}
+\begin{frame}{Conclusion}
+	\begin{exampleblock}{Wrap up}
+		\begin{itemize}
+			\item MacroSwarm: a new programming API for swarm robotics
+			\item API overview covering main swarm behaviours
+			\item Use case to exemplify the API usage
+		\end{itemize}
+	\end{exampleblock}
+	
+	\begin{alertblock}{Future work}
+		\begin{itemize}
+			\item Integration in a robust swarm robotics framework (e.g., ARGoS, Gazebo)
+			\item Use in a real swarm of robots (e.g., using Crazyflie 2.0)
+			\item Add more behaviours to the API (e.g., complex structures, easier plan composition)
+		\end{itemize}
+	\end{alertblock}
+\end{frame}
+
 \begin{frame}{}
 \centering
 \huge{Thank you for your attention!}
+\\
 \vspace{0.2cm}
 \fbox{\includegraphics[width=0.5\textwidth]{img/architecture.drawio.pdf}}
 \includegraphics[height=2.8cm]{img/full-stack.png}
@@ -385,7 +451,11 @@ The behaviours can be composed together to create more complex behaviours
 \fbox{\includegraphics[width=0.2\textwidth]{img/team-formation.png}}
 \fbox{\includegraphics[width=0.2\textwidth]{img/circle-formation.png}}
 \fbox{\includegraphics[width=0.205\textwidth]{img/explore-append.png}}
-
+\\
+\vspace{0.2cm}
+\fbox{\includegraphics[width=0.2\textwidth]{img/average_intra_team_distance.pdf}}
+\fbox{\includegraphics[width=0.2\textwidth]{img/in_danger.pdf}}
+\fbox{\includegraphics[width=0.2\textwidth]{img/min_distance.pdf}}
 \end{frame}
 %===============================================================================
 \section*{}
