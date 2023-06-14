@@ -235,20 +235,25 @@ Control the movement of the individual agents within the swarm
 		\begin{minted}{scala}
 Velocity2D(0, 1)
 		\end{minted}
-		\includegraphics[width=\textwidth]{img/constant-movement.png}
+		\includegraphics[height=3.5cm]{img/constant-movement.png}
 		\end{exampleblock}
 	\end{column}
 	\begin{column}[t]{0.3\textwidth}
 		\begin{exampleblock}{Obstacle avoidance}
-			
-		\includegraphics[width=\textwidth]{img/obstracle.png}
+		\begin{minted}{scala}
+obstacleAvoidance(...)
+		\end{minted}
+		\centering
+		\includegraphics[height=3.5cm]{img/obstracle.png}
 		
 		\end{exampleblock}
 	\end{column}
 	\begin{column}[t]{0.3\textwidth}
 		\begin{exampleblock}{Explore}
-			
-		\includegraphics[width=\textwidth]{img/explore-2.png}
+		\begin{minted}{scala}
+explore(...)
+		\end{minted}
+		\includegraphics[height=3.5cm]{img/explore-2.png}
 		\end{exampleblock}
 	\end{column}
 \end{columns}
@@ -307,14 +312,60 @@ teamFormation(...)
 %	\centering
 %	Creation of groups of agents with different roles/tasks coordinated by a leader
 %\end{frame}
-\begin{frame}{API Overview: Swarm Planning}
-	\centering
+\begin{frame}[fragile]{API Overview: Swarm Planning}
+
 	Expressing a series of plans that change over time and
 	move the swarm towards different targets
+\vspace{0.4cm}
+\begin{columns}
+\begin{column}{0.2\textwidth}
+\centering
+\includegraphics[width=\textwidth]{img/swarm-planner.drawio.png}
+\end{column}
+\begin{column}{0.3\textwidth}
+	\begin{minted}{scala}
+execute.once(
+	plan {
+		sinkAt(leader)
+	}.endWhen {
+		isTeamFormed(...)
+	},
+	plan(goToTop).endWhen {
+		broadcast(leader, isClose(targetA))
+	},
+	plan(goToBottom).endWhen {
+		broadcast(leader, isClose(targetB))
+	}
+)
+	\end{minted}
+\end{column}
+\begin{column}{0.3\textwidth}
+\centering
+\includegraphics[width=0.5\textwidth]{img/go-to.png}
+\includegraphics[width=0.5\textwidth]{img/go-to-1.png}
+\includegraphics[width=0.5\textwidth]{img/go-to-2.png}
+\end{column}
+
+\end{columns}
+
 \end{frame}
 
 \begin{frame}{API Overview: Composition}
+The behaviours can be composed together to create more complex behaviours
+\vspace{0.4cm}
+\begin{columns}
+\begin{column}{0.3\textwidth}
+\includegraphics[width=0.7\textwidth]{img/swarm-composition.png}
+\end{column}
 
+\begin{column}{0.3\textwidth}
+
+\end{column}
+
+\begin{column}{0.3\textwidth}
+
+\end{column}
+\end{columns}
 \end{frame}
 \begin{frame}{Use case: Rescue and Exploration}
 
