@@ -226,13 +226,15 @@ MacroSwarm\footnote{\url{https://github.com/AggregateComputing/experiment-2023-c
 \centering
 \fbox{\includegraphics[width=0.98\textwidth]{img/architecture.drawio.pdf}}
 \end{frame}
-\begin{frame}{API Overview: Basic Movements}
+\begin{frame}[fragile]{API Overview: Basic Movements}
 \centering
 Control the movement of the individual agents within the swarm
 \begin{columns}
 	\begin{column}[t]{0.3\textwidth}
 		\begin{exampleblock}{Constant movement}
-		
+		\begin{minted}{scala}
+Velocity2D(0, 1)
+		\end{minted}
 		\includegraphics[width=\textwidth]{img/constant-movement.png}
 		\end{exampleblock}
 	\end{column}
@@ -251,11 +253,15 @@ Control the movement of the individual agents within the swarm
 	\end{column}
 \end{columns}
 \end{frame}
-\begin{frame}{API Overview}
+\begin{frame}[fragile]{API Overview}
 \begin{columns}
 \begin{column}{0.3\textwidth}
 \begin{exampleblock}{Flocking}
-\includegraphics[width=\textwidth]{img/flock.png}
+\begin{minted}{scala}
+rep(Zero)(v => reynold(v, ...))
+\end{minted}
+\centering
+\includegraphics[width=0.8\textwidth]{img/flock.png}
 \end{exampleblock}
 
 \end{column}
@@ -263,13 +269,22 @@ Control the movement of the individual agents within the swarm
 \begin{column}{0.3\textwidth}
 
 	\begin{exampleblock}{Leader Based}
-
-	\includegraphics[width=\textwidth]{img/towards-leader.png}
+	\begin{minted}[fontsize=\scriptsize]{scala}
+sinkAt(leader) // boolean field
+	\end{minted}
+	\centering
+	\includegraphics[width=0.8\textwidth]{img/towards-leader.png}
 	\end{exampleblock}
 \end{column}
 
 \begin{column}{0.3\textwidth}
 	\begin{exampleblock}{Team Formation}
+
+\begin{minted}[fontsize=\scriptsize]{scala}
+teamFormation(...)
+\end{minted}
+	\centering
+	\includegraphics[width=0.8\textwidth]{img/team-formation-base.png}
 	\end{exampleblock}
 \end{column}
 	
