@@ -96,13 +96,14 @@ A \textbf{swarm behavior} is a \emph{collective} behavior that emerges from the 
 	\item \emph{Ants} \faArrowRight \, \emph{foraging} and \emph{nest building}
 	\item \emph{Fishes} \faArrowRight \, \emph{schooling}
 	\item \emph{Bees} \faArrowRight \, \emph{swarming}
+	\item \dots But now let us focus on \emph{engineering}! :)
 \end{itemize}
 \end{block}
 
 \centering
-\includegraphics[width=0.18\textwidth]{img/ants.jpeg}
-\includegraphics[width=0.18\textwidth]{img/bee.jpeg}
-\includegraphics[width=0.18\textwidth]{img/fishes.jpeg}
+\includegraphics[width=0.15\textwidth]{img/ants.jpeg}
+\includegraphics[width=0.15\textwidth]{img/bee.jpeg}
+\includegraphics[width=0.15\textwidth]{img/fishes.jpeg}
 
 \begin{alertblock}{In a nutshell}
 \begin{itemize}
@@ -115,44 +116,35 @@ A \textbf{swarm behavior} is a \emph{collective} behavior that emerges from the 
 \begin{frame}{Swarm Behaviors: Taxonomy~\footnote{\fullcite{schranz2020swarm}}}
 \begin{exampleblock}{Main classes}
 	\begin{itemize}
-		\item<1-> \textbf{Spatial Organization}: collective movements that lead to global spatial patterns
-		\only<2>{
-			\begin{itemize}
-				\item<2> Collective structures \faArrowRight \, functional to achieve certain goals
-				\item<2> \bold{Aggregation}, \bold{pattern formation}, \bold{self-assembly}, \bold{object clustering} 
-			\end{itemize}
-		}
-		\item<3-> \textbf{Navigation}: coordinated motion in order to reach a target/perform collective tasks
-		\only<4>{
-			\begin{itemize}
-				\item<4> \bold{Exploration}, \bold{motion}, \bold{transportation}, \bold{localization}
-			\end{itemize}
-		}
-		\item<5-> \textbf{Decision-making}: lead the system to reach a global decision %or consensus
-		\only<6>{
-			\begin{itemize}
-				\item \bold{consensus}, \bold{task allocation}, \bold{group size regulation}, \bold{collective perception}, \dots
-			\end{itemize}
-		}
+		\item \textbf{Spatial Organization}: collective movements that lead to global spatial patterns
+		\begin{itemize}
+			\item Collective structures \faArrowRight \, functional to achieve certain goals
+			\item \bold{Aggregation}, \bold{pattern formation}, \bold{self-assembly}, \bold{object clustering} 
+		\end{itemize}
+		\item \textbf{Navigation}: coordinated motion in order to reach a target/perform collective tasks
+		\begin{itemize}
+			\item \bold{Exploration}, \bold{motion}, \bold{transportation}, \bold{localization}
+		\end{itemize}
+		\item \textbf{Decision-making}: lead the system to reach a global decision %or consensus
+		\begin{itemize}
+			\item \bold{consensus}, \bold{task allocation}, \bold{group size regulation}, \bold{collective perception}, \dots
+		\end{itemize}
 	\end{itemize}
-
 \end{exampleblock}
-\vspace{0.2cm}
-\only<2>{
+
 	\centering
-	\includegraphics[height=2.5cm]{img/aggregation.jpg}
-	\includegraphics[height=2.5cm]{img/pattern-formation.png}
-	\includegraphics[height=2.5cm]{img/sefl-assembly.jpg}
-}
-\only<4>{
+	\includegraphics[height=1.6cm]{img/aggregation.jpg}
+	\includegraphics[height=1.6cm]{img/pattern-formation.png}
+	\includegraphics[height=1.6cm]{img/sefl-assembly.jpg}
+	\\
 	\centering
-	\includegraphics[width=0.2\textwidth]{img/exploration.jpg}
-	\includegraphics[width=0.2\textwidth]{img/navigation.jpg}
-	\includegraphics[width=0.2\textwidth]{img/transportation.jpeg}
-	\includegraphics[width=0.2\textwidth]{img/localization.png}
-}
+	\includegraphics[height=1.6cm]{img/exploration.jpg}
+	\includegraphics[height=1.6cm]{img/navigation.jpg}
+	\includegraphics[height=1.6cm]{img/transportation.jpeg}
+	\includegraphics[height=1.6cm]{img/localization.png}
+
 \end{frame}
-\begin{frame}{Programming Swarm Behaviors}
+\begin{frame}{Programming Swarm Behaviors -- Related Works}
 	\begin{block}{Problems}
 		\begin{itemize}
 			\item How to express \emph{swarm behaviors}\footnote{\fullcite{Mone2013}}? \faArrowRight \, \emph{programming abstractions} 
@@ -184,7 +176,7 @@ A \textbf{swarm behavior} is a \emph{collective} behavior that emerges from the 
 \end{frame}
 \begin{frame}{MacroSwarm}
 \centering {
-MacroSwarm\footnote{\url{https://github.com/AggregateComputing/experiment-2023-coordination-swarm-behaviour}} based on a macro programming approach called \emph{Aggregate Computing}\footnote{\fullcite{viroli2018field}} for programming swarm behaviors in a modular and scalable way.
+MacroSwarm\footnote{\url{https://github.com/AggregateComputing/experiment-2023-coordination-swarm-behaviour}} is based on a macro programming approach called \emph{Aggregate Computing}\footnote{\fullcite{viroli2018field}} (aka \emph{field-based coordination}) for programming swarm behaviors in a modular and scalable way.
 }
 \begin{alertblock}{Features}
 	\begin{itemize}
@@ -209,6 +201,17 @@ MacroSwarm\footnote{\url{https://github.com/AggregateComputing/experiment-2023-c
 \includegraphics[height=5cm]{img/abstraction.png}
 \includegraphics[height=5cm]{img/high-level-examples.png}
 \includegraphics[height=5cm]{img/full-stack.png}
+\begin{alertblock}{System model}
+	\begin{itemize}
+		\item An aggregate program is \emph{shared} by all the nodes
+		\item Each node execute rounds iteratively and asynchronously:
+		\begin{enumerate}
+			\item \textbf{Context building}: collect information from the neighborhood and sensors
+			\item \textbf{Program execution}: execute the aggregate program on the context
+			\item \textbf{Export sharing}: share the export with the neighborhood
+		\end{enumerate}
+	\end{itemize}
+\end{alertblock}
 \begin{block}{Why}
 \begin{itemize}
 	\item \emph{Top-down behaviour-based design} \faArrowRight \, \emph{compositionality} and \emph{collective stance} of aggregate computing;
@@ -218,7 +221,9 @@ MacroSwarm\footnote{\url{https://github.com/AggregateComputing/experiment-2023-c
 	\item \emph{Pragmatism} \faArrowRight \, witnessed by open-source, maintained, concrete software artifacts like the ScaFi DSL, Alchemist and {\sc{}ScaFi-Web}
 	\item \emph{Operational flexibility} \faArrowRight \, supporting different architectural styles and execution policies.
 \end{itemize}
+
 \end{block}
+
 \end{frame}
 
 \begin{frame}{Architecture}
@@ -259,8 +264,8 @@ explore(...)
 \end{frame}
 \begin{frame}[fragile]{API Overview}
 \begin{columns}
-\begin{column}{0.3\textwidth}
-\begin{exampleblock}{Flocking}
+\begin{column}{0.31\textwidth}
+\begin{exampleblock}{Flocking\emph{\tiny{~\cite{reynolds1987flocks}}}}
 \begin{minted}{scala}
 rep(Zero)(v => reynold(v, ...))
 \end{minted}
@@ -270,9 +275,8 @@ rep(Zero)(v => reynold(v, ...))
 
 \end{column}
 
-\begin{column}{0.3\textwidth}
-
-	\begin{exampleblock}{Leader Based}
+\begin{column}{0.31\textwidth}
+	\begin{exampleblock}{Leader Based\emph{\tiny{~\cite{DBLP:journals/tcst/GuW09}}}}
 	\begin{minted}[fontsize=\scriptsize]{scala}
 sinkAt(leader) // boolean field
 	\end{minted}
@@ -281,7 +285,7 @@ sinkAt(leader) // boolean field
 	\end{exampleblock}
 \end{column}
 
-\begin{column}{0.3\textwidth}
+\begin{column}{0.31\textwidth}
 	\begin{exampleblock}{Team Formation}
 
 \begin{minted}[fontsize=\scriptsize]{scala}
@@ -293,8 +297,9 @@ teamFormation(...)
 \end{column}
 	
 \end{columns}
-\begin{exampleblock}{Pattern Formation}
+\begin{exampleblock}{Pattern Formation\emph{\tiny{~\cite{DBLP:journals/ras/OhSSJ17}}}}
 \centering
+\texttt{line(...) || vShape(....) || centeredCircle(...)}
 \includegraphics[width=0.8\textwidth]{img/shapes.png}
 \end{exampleblock}
 \end{frame}
@@ -313,8 +318,7 @@ teamFormation(...)
 %\end{frame}
 \begin{frame}[fragile]{API Overview: Swarm Planning}
 
-	Expressing a series of plans that change over time and
-	move the swarm towards different targets
+	Expressing a series of plans that change over time that let the swarm achieving different goals
 \vspace{0.4cm}
 \begin{columns}
 \begin{column}{0.2\textwidth}
@@ -372,9 +376,9 @@ avoid + separation + moveTo
 \begin{frame}[fragile]{Use case: Rescue and Exploration}
 \begin{exampleblock}{High-level description}
 	\begin{itemize}
-		\item A swarm of robots are deployed in a rectangular area
-		\item A group of robots is assigned to explore the area
-		\item Other robots are assigned to heal the injured robots
+		\item A swarm of robots is deployed in a rectangular area in which there are injured target
+		\item Two robots type: \emph{healers} and \emph{explorers}
+		\item \textbf{Goal}: heal all the injured robots
 		\item \url{https://github.com/AggregateComputing/experiment-2023-coordination-swarm-behaviour}
 	\end{itemize}
 \end{exampleblock}
@@ -383,9 +387,9 @@ avoid + separation + moveTo
 
 \begin{alertblock}{Pseudocode}
 	\begin{enumerate}
-		\item Form teams of robots with healers and explorers (team formation)
-		\item Explore the area (Exploration)
-		\item When a robot finds an injured, it broadcasts a message (leader-based)
+		\item Form teams of robots with healers and explorers (\emph{team formation})
+		\item Explore the area (\emph{exploration})
+		\item When a robot finds an injured, it broadcasts a message (\emph{leader-based})
 		\item The healers move towards the injured
 	\end{enumerate}
 \end{alertblock}
